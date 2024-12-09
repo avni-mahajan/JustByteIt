@@ -1,17 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 
-
-const loop = React.createElement("div",{id: "parent"},[
-    React.createElement("div", {id: "child1"}, [
-    React.createElement("h1",{},"Heading 1 of child 1"),
-    React.createElement("h2",{},"Heading 2 of child 1")]),
-
-    React.createElement("div", {id: "child2"}, [
-    React.createElement("h1",{},"Heading 1 of child 2"),
-    React.createElement("h2",{},"Heading 2 of child 2")])
-]);
-
+// writing the code using react, we are directly creating the react element which will be further converted to  html code
+const heading = React.createElement("h1",{id:"heading"},"Hello");
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(loop);
+root.render(heading);
+
+// we have an extra step here and the code is written in jsx which is first converted to react elemet amd then the process continues !!
+const headi = <h1 id =" head">Hellooooooo</h1>;
+root.render(headi);
+
