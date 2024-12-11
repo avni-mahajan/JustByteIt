@@ -1,6 +1,27 @@
-#child1 {
-color: pink;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-#child2 {
-    color: peachpuff;
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.nav-bar {
+    float: right;
+}
+
+.nav-bar > ul {
+    font-size: 20px;
+    list-style-type: none;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nav-bar > ul > li {
+    padding: 10px 15px;
+    margin: 0px 10px;
 }
