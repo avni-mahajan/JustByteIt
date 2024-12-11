@@ -1,5 +1,5 @@
 
-import mockData from "../utilis/mockData"
+import resList from "../utilis/mockData"
 import ResCard from "./ResCard"
 const Body = () => {
     return (

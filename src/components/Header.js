@@ -1,3 +1,4 @@
+import { LOGO_URL } from "../utilis/constants"
 const Header = () => {
     return(
     <div className = "header">
@@ -14,3 +15,5 @@ const Header = () => {
         </div>
     </div>
 )}
+
+export default Header;
