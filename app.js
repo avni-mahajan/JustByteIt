@@ -11,10 +11,10 @@ const HeaderComponent = () => {
         </div>
         <div className="nav-bar">
             <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Cart</li>
+                <li id="home">Home</li>
+                <li id="about">About Us</li>
+                <li id="contact">Contact Us</li>
+                <li id="cart">Cart</li>
             </ul>
         </div>
     </div>
@@ -991,7 +991,7 @@ const ResCard = (props) =>{
             <img className="res-img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
             <h3>{name}</h3>
             <h4>{cuisines.join(",")}</h4>
-            <h4>{avgRating}</h4>
+            <h4>{avgRating + " " + "stars"}</h4>
             <h4>{costForTwo}</h4>
         </div>
     )
