@@ -1,4 +1,4 @@
-import { LOGO_CDN } from "../utilis/constants";
+import { LOGO_CDN } from "../utils/constants";
 
 const ResCard = (props) =>{
     const {resData} = props;
