@@ -29,25 +29,33 @@
 
 .res-img {
     width: 160px;
-    height: auto;
+    height: 160px;
     padding: 19px;
     margin: 0px;
+    border-radius: 25px;
 }
 
 .res-card {
     width: 200px;
     margin: 10px 10px;
-    background-color: lightgray;
+    background-color: #E4E0E1;
+    border-radius: 25px;
+    overflow: hidden;
+    word-wrap: break-word;  
+    /* word wrap helps us to */
 }
 
 .res-card:hover {
+    background-color: #B7B7B7;
     cursor: pointer;
-    border: 1px solid black;
-    border: 1px solid orange;
 }
 
 .res-card h3 {
     margin:  5px 0px;
+    text-align: center;
+}
+.res-card h4 {
+    margin:  5px 5px;
     text-align: center;
 }
 
@@ -56,3 +64,9 @@
     flex-wrap: wrap;
     
 }
+
+#home:hover, #about:hover, #contact:hover, #cart:hover {
+    background-color: #E4E0E1;
+    cursor: pointer;
+}
+
