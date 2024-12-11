@@ -1,3 +1,6 @@
+
+import mockData from "../utilis/mockData"
+import ResCard from "./ResCard"
 const Body = () => {
     return (
         <div className="body">
@@ -14,3 +17,5 @@ const Body = () => {
         </div>
     )
 }
+
+export default Body;

@@ -1,9 +1,11 @@
+import { LOGO_CDN } from "../utilis/constants";
+
 const ResCard = (props) =>{
     const {resData} = props;
     const {name , cuisines , deliveryTime , avgRating , cloudinaryImageId , costForTwo } = resData?.info;
     return (
         <div className="res-card">
-            <img className="res-img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
+            <img className="res-img" src={LOGO_CDN + cloudinaryImageId} />
             <h3>{name}</h3>
             <h4>{cuisines.join(",")}</h4>
             <h4>{avgRating + " " + "stars"}</h4>
@@ -11,3 +13,5 @@ const ResCard = (props) =>{
         </div>
     )
 }
+
+export default ResCard;
