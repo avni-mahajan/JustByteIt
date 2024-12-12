@@ -28,7 +28,7 @@ const Body = () => {
                     const filteredLis = lisRes.filter( (res) => { return (res.info.avgRating >= 4.5 )} );
                     setlisRes(filteredLis);
                 }
-                }> Click me</button>
+                }> Top restaurants</button>
             </div>
             <div className = "res-container">
                 {
