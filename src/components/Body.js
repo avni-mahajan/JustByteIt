@@ -1,12 +1,8 @@
-
-import resList from "../utils/mockData"
 import ResCard from "./ResCard"
 import { useState, useEffect } from "react"
 
-
-
 const Body = () => {
-    const[lisRes, setlisRes] =  useState(resList);  //has to be declared inside the component !!!!!!!
+    const[lisRes, setlisRes] =  useState([]);  //has to be declared inside the component !!!!!!!
 
     const fetchData = async() =>{   //fetch data from an api !!!!!
 
