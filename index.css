@@ -81,3 +81,8 @@
     height: 300px;
     margin: 10px 10px;
 }
+
+#login:hover {
+    cursor: pointer;
+    background-color: #B7B7B7;
+}
