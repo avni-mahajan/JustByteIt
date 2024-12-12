@@ -70,3 +70,14 @@
     cursor: pointer;
 }
 
+.shimmer-cont {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer {
+    background-color: #E4E0E1;
+    width: 200px;
+    height: 300px;
+    margin: 10px 10px;
+}
