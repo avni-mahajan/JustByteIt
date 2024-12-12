@@ -17,13 +17,8 @@ const Body = () => {
 
     useEffect(()=>{ fetchData() },[]);
 
-    if(lisRes.length===0){
-        return <Shimmer/>
-    }
-    
 
-    
-    return (
+    return lisRes.length===0 ? <Shimmer/> : (
         <div className="body">
             <div className="search"> 
                  <input type="text" placeholder="search here..." />
