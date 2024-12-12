@@ -1,5 +1,7 @@
 import { LOGO_URL } from "../utils/constants"
 const Header = () => {
+    let buttonClick = "login";
+
     return(
     <div className = "header">
         <div className = "logo-container">
@@ -11,6 +13,10 @@ const Header = () => {
                 <li id="about">About Us</li>
                 <li id="contact">Contact Us</li>
                 <li id="cart">Cart</li>
+                <li id="login" onClick={()=> {
+                    buttonClick="logout";
+                    console.log(buttonClick);
+                }}>{buttonClick}</li>
             </ul>
         </div>
     </div>
