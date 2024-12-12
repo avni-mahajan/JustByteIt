@@ -1,5 +1,6 @@
 import ResCard from "./ResCard"
 import { useState, useEffect } from "react"
+import Shimmer from "./Shimmer";
 
 const Body = () => {
     const[lisRes, setlisRes] =  useState([]);  //has to be declared inside the component !!!!!!!
@@ -15,6 +16,10 @@ const Body = () => {
 
 
     useEffect(()=>{ fetchData() },[]);
+
+    if(lisRes.length===0){
+        return <Shimmer/>
+    }
     
 
     
