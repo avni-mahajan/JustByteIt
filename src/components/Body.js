@@ -27,11 +27,23 @@ const Body = () => {
         <div className="body">
             <div className="filter">
                 <div className="search"> 
-                   <input type="text" placeholder="search here..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-                   <button className="search-btn" onClick={()=> {
-                    const filterlis = lisRes.filter((res) => { return res.info.name.toLowerCase().includes(searchText.toLowerCase()) } );
-                    setflisRes(filterlis);
-                   }} >Search</button>
+                    
+                   <input 
+                   className ="search-input" 
+                   type="text"
+                    placeholder="search here..." 
+                    value={searchText} onChange={(e) => setSearchText(e.target.value)} 
+                    />
+
+                   <button 
+                   className="search-btn"  
+                   onClick={()=> {
+                   const filterlis = lisRes.filter((res) => { return res.info.name.toLowerCase().includes(searchText.toLowerCase()) } );
+                   setflisRes(filterlis);
+                   }} > 
+                   Search
+                   </button>
+
                 </div>
 
                 <button className="filter-btn" onClick = { () => {
