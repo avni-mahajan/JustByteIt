@@ -1,6 +1,8 @@
 import ResCard from "./ResCard"
 import { useState, useEffect } from "react"
 import Shimmer from "./Shimmer";
+import { Link } from 'react-router-dom';
+
 
 const Body = () => {
     const[lisRes, setlisRes] =  useState([]);  //has to be declared inside the component !!!!!!!
@@ -56,7 +58,7 @@ const Body = () => {
             <div className = "res-container">
                 {
                     flisRes.map(
-                        (restaurant) => (<ResCard key = {restaurant?.info?.id} resData={restaurant}/>)
+                        (restaurant) => (<Link key = {restaurant?.info?.id} to = {"./restaurants/" + restaurant?.info?.id}><ResCard resData={restaurant}/></Link>)
                     )
                 }
             </div>
