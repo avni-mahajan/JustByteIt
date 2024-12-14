@@ -22,6 +22,8 @@ const ResMenu = () => {
         return <Shimmer/> 
     }
 
+    //hellooooooooooooooooooo
+
     const {name} = resInfo?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[0]?.card?.card?.itemCards?.card?.info ;
 
     return (
