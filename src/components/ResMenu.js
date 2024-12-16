@@ -1,56 +1,61 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { MENU_A } from "../utils/constants";
-import { MENU_B } from "../utils/constants";
 import { useParams } from "react-router-dom";
 
 const ResMenu = () => {
-    const [resInfo, setResInfo] = useState(null);
-    const { resID } = useParams();
+  const [resInfo, setResInfo] = useState(null);
+  const { resID } = useParams(); // to etch restaurant ID dynamically from the route
 
-    useEffect(() => {
-        fetchMenu();
-    }, []); // Empty dependency array ensures it runs only once
+  useEffect(() => {
+    fetchMenu();
+  }, []); // Empty dependency array ensures it runs only once
 
-    // Fetch menu details
-    const fetchMenu = async () => {
-        try {
-            const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7333148&lng=76.7794179&restaurantId=805211&catalog_qa=undefined&submitAction=ENTER");
-            const json = await response.json();
-            setResInfo(json.response);
-        } catch (error) {
-            console.error("Failed to fetch menu:", error);
-        }
-    };
-
-    
-
-    // Show loading shimmer until data is fetched
-    if (resInfo===null) {
-        return <Shimmer />;
+  const fetchMenu = async () => {
+    try {
+      const response = await fetch(
+        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7333148&lng=76.7794179&restaurantId=${resID}&catalog_qa=undefined&submitAction=ENTER`
+      );
+      const json = await response.json();
+      setResInfo(json?.data);
+    } catch (error) {
+      console.error("Failed to fetch menu:", error);
     }
+  };
 
-    // Safely access nested properties
-    // const info =
-    //     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards?.card?.info;
+  if (resInfo === null) {
+    return <Shimmer />;
+  }
 
-    // Fallback if info is unavailable
-    // if (!info) {
-    //     return <div>No menu information available</div>;
-    // }
+  const restaurantName =
+    resInfo?.cards?.[2]?.card?.card?.info?.name ||
+    "Restaurant Name Unavailable";
 
-    // const { name = "Menu Name Unavailable", description = "No description provided" } = info;
-    const {name } = resInfo?.cards[0]?.card?.text || "Menu Name Unavailable";
+  const menuItems = resInfo?.cards
+    ?.find((card) => card?.groupedCard)
+    ?.groupedCard?.cardGroupMap?.REGULAR?.cards // Access REGULAR cards
+    ?.flatMap((card) => card?.card?.card?.itemCards || []); // Flatten menu items
 
-    const {itemCards } = resInfo?.cards[2]?.groupedCard?.cardsGroupMap?.REGULAR?.cards[1]?.card?.card || "Menu Name Unavailable";
-
-    return (
-        <div className="menu">
-            <h1>{name}</h1>
-            <h1>{itemCards[0]?.card?.info?.name}</h1>
-            {/* <p>{description}</p> */}
-        </div>
-    );
+  return (
+    <div className="menu">
+      <h1>{restaurantName}</h1>
+      <div>
+        {menuItems?.map((item, index) => {
+          const { name, imageId, description } = item?.card?.info || {};
+          return (
+            <div key={index} className="menu-item">
+              <h2>{name || "Menu Item Unavailable"}</h2>
+              <img
+                className="menu-pic"
+                src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/${imageId}`}
+                alt={name}
+              />
+              <p>{description || "No description available"}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default ResMenu;
