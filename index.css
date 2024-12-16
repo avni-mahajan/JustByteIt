@@ -180,3 +180,24 @@ a {
     color: inherit;    /* Inherits color from the parent element */
   }
   
+.menu-item {
+    width: 200px;
+    margin: 10px 10px;
+    background-color: #dfeae9; /* Mystic */
+    border-radius: 25px;
+    overflow: hidden;
+    word-wrap: break-word;  
+}
+
+.menu-pic {
+    width: 139.6px;
+    height: 195.863px;
+    padding: 19px;
+    margin: 0px;
+    border-radius: 25px;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+}

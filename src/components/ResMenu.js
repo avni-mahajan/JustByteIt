@@ -38,7 +38,7 @@ const ResMenu = () => {
   return (
     <div className="menu">
       <h1>{restaurantName}</h1>
-      <div>
+      <div className = "items">
         {menuItems?.map((item, index) => {
           const { name, imageId, description } = item?.card?.info || {};
           return (
