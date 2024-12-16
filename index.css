@@ -43,7 +43,7 @@
 }
 
 .res-card {
-    display: inline;
+    /* display: inline; */
     width: 200px;
     margin: 10px 10px;
     background-color: #dfeae9; /* Mystic */
@@ -173,3 +173,10 @@
     width: auto;
     height: 25px;
 }
+
+/* global.css */
+a {
+    text-decoration: none;  /* Removes the underline from links */
+    color: inherit;    /* Inherits color from the parent element */
+  }
+  
