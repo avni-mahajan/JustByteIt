@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LOGO_URL } from "../utils/constants";
+import logo from "../utils/images/logo.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -7,28 +7,33 @@ const Header = () => {
     const [buttonClick, setbuttonClick] = useState(["login"]);
 
     return(
-    <div className = "header">
-        <div className = "logo-container">
-            <img className = "logo" src={LOGO_URL}/>
+    <div className = "flex justify-around shadow-md">
+        <div className = "w-20 m-2">
+            <img className = "logo" src={logo}/>
         </div>
-        <div className="nav-bar">
-            <ul>
-                <li id="home">
+        <div className="flex">
+            <ul className="flex m-2 ">
+                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
                 <Link to = ""> Home</Link> 
                 </li>
-                <li id="about">
+                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
                 <Link to = "/about">About Us</Link> 
                 </li>
-                <li id="grocery">
+                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
                 <Link to = "/grocery">Grocery</Link> 
                 </li>
-                <li id="contact">
+                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
                 <Link to = "/contact">Contact Us</Link>
                 </li>
-                <li id="cart">Cart</li>
-                <li id="login" onClick={()=> {
-                    buttonClick=== "login" ? setbuttonClick("logout") :setbuttonClick("login") ;
-                }}>{buttonClick}</li>
+                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">Cart</li>
+                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer" onClick={  
+                    () => {
+                    buttonClick=== "Login" ? 
+                    setbuttonClick("Logout") 
+                    :setbuttonClick("Login") ;
+                }}>
+                {buttonClick}
+                </li>
             </ul>
         </div>
     </div>

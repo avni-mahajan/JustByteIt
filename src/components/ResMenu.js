@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import useResMenu from "../utils/useResMenu";
 
 const ResMenu = () => {
-  const { resID } = useParams(); // to etch restaurant ID dynamically from the route
+  const { resID } = useParams(); // to fetch restaurant ID dynamically from the route
 
   const resInfo = useResMenu(resID);
 
@@ -22,19 +22,18 @@ const ResMenu = () => {
 
   return (
     <div className="menu">
-      <h1>{restaurantName}</h1>
-      <div className = "items">
+      <h1 className="font-extrabold text-center text-4xl">{restaurantName}</h1>
+      <div className = "flex flex-wrap">
         {menuItems?.map((item, index) => {
-          const { name, imageId, description } = item?.card?.info || {};
+          const { name, imageId } = item?.card?.info || {};
           return (
-            <div key={index} className="menu-item">
-              <h2>{name || "Menu Item Unavailable"}</h2>
+            <div key={index} className="w-60 h-3/4 m-5 p-2 bg-yellow-50 rounded-xl hover:scale-95 hover:cursor-pointer">
+              <h2 className="font-bold">{name || "Menu Item Unavailable"}</h2>
               <img
-                className="menu-pic"
+                className="w-60 h-2/3 rounded-xl"
                 src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/${imageId}`}
                 alt={name}
               />
-              <p>{description || "No description available"}</p>
             </div>
           );
         })}
