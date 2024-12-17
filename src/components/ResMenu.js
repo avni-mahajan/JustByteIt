@@ -1,26 +1,11 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useResMenu from "../utils/useResMenu";
 
 const ResMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resID } = useParams(); // to etch restaurant ID dynamically from the route
 
-  useEffect(() => {
-    fetchMenu();
-  }, []); // Empty dependency array ensures it runs only once
-
-  const fetchMenu = async () => {
-    try {
-      const response = await fetch(
-        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7333148&lng=76.7794179&restaurantId=${resID}&catalog_qa=undefined&submitAction=ENTER`
-      );
-      const json = await response.json();
-      setResInfo(json?.data);
-    } catch (error) {
-      console.error("Failed to fetch menu:", error);
-    }
-  };
+  const resInfo = useResMenu(resID);
 
   if (resInfo === null) {
     return <Shimmer />;

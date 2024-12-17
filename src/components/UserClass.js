@@ -14,11 +14,11 @@ class UserClass extends React.Component {
 
   render() {
     const { name, location } = this.props;
-    const { count } = this.state.count;
+    const { count } = this.state;
 
     // Log props and state for debugging
     // console.log("Props:", { name, location });
-    // console.log("State:", { count });
+    console.log("State:", { count });
 
     return (
       <div className="user">
