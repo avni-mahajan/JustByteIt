@@ -1,14 +1,70 @@
-<h1 style="color: #2A7B8D; font-family: Arial, sans-serif; text-align: left;">🌊 Learning React 🌊</h1>
+# JustByteIt
 
-<p style="color: #7BBED8; font-family: Arial, sans-serif;">
-Welcome to my <b>React Learning Journey</b>! This repository is my cozy little corner where I’ll keep track of my progress as I explore React. 💻✨
-</p>
+JustByteIt is a web application built to explore and learn React.js. This project integrates Swiggy's live APIs and modern web technologies to create an engaging user experience. The app uses various tools like Tailwind CSS for styling, Redux for state management, React Router for page navigation and Parcel as a bundler among others.
 
-<h3 style="color: #3A97B8; font-family: Arial, sans-serif;">🌟 What’s inside?</h3>
-<ul style="color: #C1D9E6; font-family: Arial, sans-serif;">
-  <li>💡Projects that I’m building as I learn new concepts daily </li>
-  <li> This will be updated with the information about end product when i am finished</li>
-</ul>
+## 💻 Tech Stack
 
+- React.js
+- Redux
+- React Router
+- Tailwind CSS
+- Parcel (Bundler)
+- Babel (Transpiler)
 
-<hr style="border-top: 2px solid #5B9AB6;">
+## 🧿 Key Features
+
+- Integration of live APIs for dynamic data fetching.
+- Config-driven UI for easy customization.
+- State management with Redux for a seamless user experience.
+- Code splitting and lazy loading for better performance.
+- Custom Hooks for reusable logic.
+- Shimmer UI for a smooth loading experience.
+
+## 🚀 Live Demo
+
+Will be updated soon !
+
+## Screenshots
+
+Will be updated soon !
+
+## Features
+
+- **User Authentication:** Secure user authentication with JWT and restricted access to certain pages.
+- **Real-time Search:** Search for products and services in real-time, enhancing the user experience.
+- **Filters and Sorting:** Users can filter and sort items to find exactly what they're looking for.
+- **Cart Management:** Users can manage their shopping cart and proceed to checkout with ease.
+- **Lazy Loading:** Optimized resource loading to improve application performance.
+- **Testing:** Full test coverage using Jest and React Testing Library to ensure quality.
+
+## Setup
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/justbyteit.git
+    cd justbyteit
+    ```
+
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3. **Set up environment variables:**  
+    Create a `.env` file in the root directory and add any necessary API keys or credentials.
+
+4. **Start the development server:**
+    ```bash
+    npm start
+    ```
+
+5. **Open the application:**  
+    Open your browser and navigate to [http://localhost:1234](http://localhost:1234) to access the application.
+
+---
+
+> Note: JustByteIt is a learning project built for educational purposes. It is not intended for commercial use or public deployment.
+
+Happy coding! 🎉
