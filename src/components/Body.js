@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard  from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,6 +11,10 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState([""]);
   const onlinestatus = useOnlineStatus();
+
+  //const ResCardDiscount = withDiscountLabel(ResCard);
+
+  console.log({lisRes});
 
   const fetchData = async () => {
     const data = await 
@@ -67,7 +71,12 @@ const Body = () => {
           <Link
             key={restaurant?.info?.id} to={"/restaurant/" + restaurant?.info?.id}
           >
-           <ResCard resData={restaurant} />
+           {/* { 
+           restaurant?.info?.aggregatedDiscountInfoV3?.header ?
+            (<ResCardDiscount resData={restaurant} /> ) 
+            : (<ResCard resData={restaurant} />) 
+           } */}
+           <ResCard resData = {restaurant} />
           </Link>
           ) 
          )
