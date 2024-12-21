@@ -14,6 +14,7 @@ const ItemList = ({ items }) => {
                 <span>{item?.card?.info?.name}</span>
                 {/* Conditional rendering for price and finalprice */}
                 <div>
+                - ₹
                   {item?.card?.info?.finalPrice ? (
                     <>
                       <span className="line-through text-gray-500">
