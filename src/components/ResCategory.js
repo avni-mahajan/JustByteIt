@@ -1,9 +1,7 @@
-import { useState } from "react";
 import ItemList from "./ItemList";
 
-const Rescategory = ({data}) => {
+const Rescategory = ({data,showItems,setshowItems}) => {
 
-    const [showItems,setshowItems] = useState(false);
     const handleClick = () => {
         setshowItems(!showItems); 
     };

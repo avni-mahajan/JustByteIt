@@ -2,11 +2,12 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useResMenu from "../utils/useResMenu";
 import ResCategory from "./ResCategory";
+import { useState } from "react";
 
 const ResMenu = () => {
   const { resID } = useParams(); // to fetch restaurant ID dynamically from the route
-
   const resInfo = useResMenu(resID);
+  const [showIndex,setShowIndex] = useState(0);
 
   if (resInfo === null) {
     return <Shimmer/>;
@@ -30,7 +31,12 @@ const ResMenu = () => {
     <div className="text-center">
       <h1 className="font-bold text-2xl my-10">{restaurantName}</h1>
       <div>
-        {categories.map((category) => <ResCategory key={category?.card?.card.title} data = {category?.card?.card}/>)}
+        {categories.map((category,index) => 
+        <ResCategory key={category?.card?.card.title} 
+        data = {category?.card?.card} 
+        showItems={index === showIndex ? true : false}
+        setshowItems={() => setShowIndex(index)}
+         />)}
       </div>
     </div>
   );
