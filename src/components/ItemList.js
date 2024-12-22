@@ -39,6 +39,7 @@ const ItemList = ({ items }) => {
             </div>
 
             <div className="w-3/12">
+            <button className=" absolute bg-black text-white">Add+</button>
             <img src={LOGO_CDN + item.card.info.imageId} className="w-full" />
             </div>
 

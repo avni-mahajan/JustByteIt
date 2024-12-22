@@ -8,6 +8,8 @@ import Error from "./components/Error"
 import Contact from "./components/Contact"
 import ResMenu from "./components/ResMenu";
 import {lazy} from "react"; //for lazy loading
+import { Provider } from "react-redux"; //redux (state managment)
+import appStore from "./utils/appStore";
 
 const Grocery = lazy (()=> import("./components/Grocery"));  //importing element we want to lazy load 
 
@@ -15,10 +17,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const AppLayout = () => {
     return (
+        <Provider store = {appStore} >
         <div className = "app">
             <Header/>
             <Outlet/>
         </div>
+        </Provider>
     )
 }
 

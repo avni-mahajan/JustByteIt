@@ -2,11 +2,13 @@ import { useState,useContext } from "react";
 import logo from "../utils/images/logo.png";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux"; //a selector is a hook
 
 const Header = () => {
 
     const [buttonClick, setbuttonClick] = useState(["login"]);
     const {loggedInUser} = useContext(UserContext); //accessing context using hooks
+    const cartItem = useSelector((store)=> store.cart.items);
 
     return(
     <div className = "flex justify-around shadow-md">
@@ -27,7 +29,7 @@ const Header = () => {
                 <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
                 <Link to = "/contact">Contact Us</Link>
                 </li>
-                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">Cart</li>
+                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">Cart ({cartItem.length})</li>
                 <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">{loggedInUser}</li> 
                 <li className="p-5 hover:text-yellow-600 hover:cursor-pointer" onClick={  
                     () => {
