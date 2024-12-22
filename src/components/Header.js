@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import logo from "../utils/images/logo.png";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
 
     const [buttonClick, setbuttonClick] = useState(["login"]);
+    const {loggedInUser} = useContext(UserContext); //accessing context using hooks
 
     return(
     <div className = "flex justify-around shadow-md">
@@ -26,6 +28,7 @@ const Header = () => {
                 <Link to = "/contact">Contact Us</Link>
                 </li>
                 <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">Cart</li>
+                <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">{loggedInUser}</li> 
                 <li className="p-5 hover:text-yellow-600 hover:cursor-pointer" onClick={  
                     () => {
                     buttonClick=== "Login" ? 
