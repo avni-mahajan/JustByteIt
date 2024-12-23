@@ -1,36 +1,29 @@
 import { useState, useContext } from "react";
 import logo from "../utils/images/logo.png";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import CartIcon from "./CartIcon";
 
 const Header = () => {
   const [buttonClick, setbuttonClick] = useState(["Login"]);
-  const cartItem = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex justify-around shadow-md">
       <div className="w-20 m-2">
-        <img className="logo" src={logo} />
+        <img src={logo} />
       </div>
       <div className="flex">
         <ul className="flex m-2 ">
-          <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
+          <li className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
             <Link to=""> Home</Link>
           </li>
-          <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
-            <Link to="/about">About Us</Link>
+          <li className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
+            <Link to="/about">About</Link>
           </li>
-          <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
+          <li className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
-            <Link to="/contact">Contact Us</Link>
-          </li>
-          <li className="p-5 hover:text-yellow-600 hover:cursor-pointer">
-            <Link to="/cart">Cart ({cartItem.length})</Link>
-          </li>
           <li
-            className="p-5 hover:text-yellow-600 hover:cursor-pointer"
+            className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold"
             onClick={() => {
               buttonClick === "Login"
                 ? setbuttonClick("Logout")
@@ -38,6 +31,11 @@ const Header = () => {
             }}
           >
             {buttonClick}
+          </li>
+          <li className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
+            <Link to="/cart">
+              <CartIcon />
+            </Link>
           </li>
         </ul>
       </div>
