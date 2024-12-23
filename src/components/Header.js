@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div className="flex justify-around shadow-md">
-      <div className="w-20 m-2">
+      <div className="w-20 my-3">
         <img src={logo} />
       </div>
       <div className="flex">

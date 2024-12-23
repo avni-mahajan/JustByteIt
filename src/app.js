@@ -19,7 +19,9 @@ const AppLayout = () => {
     return (
         <Provider store = {appStore} >
         <div className = "app">
+            <div className="sticky top-0 z-50 bg-white">
             <Header/>
+            </div>
             <Outlet/>
         </div>
         </Provider>
