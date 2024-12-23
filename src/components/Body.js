@@ -5,16 +5,17 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Search from "./Search";
 import Carousel from "./Carousel";
+import TopRes from "./TopRes";
 
 const Body = () => {
   const [lisRes, setlisRes] = useState([]);
   const [flisRes, setflisRes] = useState([]);
 
   const [carouselRes, setcarouselRes] = useState([]);
+  const [topResData, settopResData] = useState([]);
 
   const [searchText, setSearchText] = useState([""]);
   const onlinestatus = useOnlineStatus();
-
 
   const fetchData = async () => {
     const data = await fetch(
@@ -29,10 +30,12 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setcarouselRes(
-      json?.data?.cards[0]?.card?.card?.imageGridCards?.info   //returning an array of resturent
+      json?.data?.cards[0]?.card?.card?.imageGridCards?.info //returning an array of resturent
+    );
+    settopResData(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants //returning an array of resturent
     );
   };
-
 
   useEffect(() => {
     fetchData();
@@ -67,9 +70,22 @@ const Body = () => {
           </button>
         </div>
       </div>
+      <div className="mx-56 my-10">
+        <h1 className="font-bold text-2xl">What's on your mind?</h1>
+        <div className="">
+          <Carousel carouselRes={carouselRes} />
+        </div>
+      </div>
 
-      <Carousel carouselRes = {carouselRes}/>
-
+      <div className="mx-56 my-10">
+        <h1 className="font-bold text-2xl">Top restaurant chains in Jodhpur</h1>
+        <div className="">
+          <TopRes topResData={topResData} />
+        </div>
+      </div>
+     
+     <div>
+      <h1 className="font-bold text-2xl mx-56">Restaurants with online food delivery in Jodhpur</h1>
       <div className="flex flex-wrap px-48">
         {flisRes.map((restaurant) => (
           <Link
@@ -80,6 +96,8 @@ const Body = () => {
           </Link>
         ))}
       </div>
+     </div>
+      
     </div>
   );
 };
