@@ -5,7 +5,6 @@ import Body from "./components/Body"
 import { createBrowserRouter, RouterProvider , Outlet } from "react-router-dom";
 import About from "./components/About"
 import Error from "./components/Error"
-import Contact from "./components/Contact"
 import ResMenu from "./components/ResMenu";
 import {lazy} from "react"; //for lazy loading
 import { Provider } from "react-redux"; //redux (state managment)
@@ -43,10 +42,6 @@ const appRouter = createBrowserRouter([
         {
             path : "/grocery",
             element : <Suspense fallback = {<h1>Loading...</h1>}> <Grocery/> </Suspense>,
-        },
-        {
-            path : "/contact",
-            element : <Contact/>,
         },
         {
             path : "/restaurant/:resID",
