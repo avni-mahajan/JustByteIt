@@ -4,15 +4,17 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Search from "./Search";
+import Carousel from "./Carousel";
 
 const Body = () => {
   const [lisRes, setlisRes] = useState([]);
   const [flisRes, setflisRes] = useState([]);
 
+  const [carouselRes, setcarouselRes] = useState([]);
+
   const [searchText, setSearchText] = useState([""]);
   const onlinestatus = useOnlineStatus();
 
-  console.log({ lisRes });
 
   const fetchData = async () => {
     const data = await fetch(
@@ -26,7 +28,11 @@ const Body = () => {
     setflisRes(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setcarouselRes(
+      json?.data?.cards[0]?.card?.card?.imageGridCards?.info   //returning an array of resturent
+    );
   };
+
 
   useEffect(() => {
     fetchData();
@@ -61,6 +67,8 @@ const Body = () => {
           </button>
         </div>
       </div>
+
+      <Carousel carouselRes = {carouselRes}/>
 
       <div className="flex flex-wrap px-48">
         {flisRes.map((restaurant) => (
