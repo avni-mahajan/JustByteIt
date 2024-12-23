@@ -8,22 +8,22 @@ const Header = () => {
 
   return (
     <div className="flex justify-around shadow-md">
-      <div className="w-20 my-3">
+      <div className="w-16 my-3">
         <img src={logo} />
       </div>
       <div className="flex">
         <ul className="flex m-2 ">
-          <li className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
+          <li className="py-3 px-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
             <Link to=""> Home</Link>
           </li>
-          <li className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
+          <li className="py-3 px-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
             <Link to="/about">About</Link>
           </li>
-          <li className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
+          <li className="py-3 px-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
             <Link to="/grocery">Grocery</Link>
           </li>
           <li
-            className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold"
+            className="py-3 px-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold"
             onClick={() => {
               buttonClick === "Login"
                 ? setbuttonClick("Logout")
@@ -32,7 +32,7 @@ const Header = () => {
           >
             {buttonClick}
           </li>
-          <li className="p-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
+          <li className="py-3 px-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
             <Link to="/cart">
               <CartIcon />
             </Link>
