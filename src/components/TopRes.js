@@ -1,14 +1,19 @@
 import ResCard from "./ResCard";
+import { Link } from "react-router-dom";
 const TopRes = ({ topResData }) => {
   return (
     <div className="relative">
-      <div className="flex overflow-x-auto scrollbar scrollbar-thumb-yellow-400 scrollbar-track-yellow-100 py-4">
+      <div className="flex overflow-x-auto scrollbar-none">
         {topResData.map((restaurant) => (
-          <div key={restaurant?.info?.id} className="mx-2 flex-shrink-0">
-            <ResCard resData={restaurant}/>
-          </div>
+          <Link
+          key={restaurant?.info?.id}
+          to={"/restaurant/" + restaurant?.info?.id}
+        >
+          <ResCard resData={restaurant} />
+        </Link>
         ))}
       </div>
+      <hr/>
     </div>
   );
 };

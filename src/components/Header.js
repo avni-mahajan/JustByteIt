@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="flex justify-around shadow-md">
       <div className="w-16 my-3">
-        <img src={logo} />
+        <img src={logo}  />
       </div>
       <div className="flex">
         <ul className="flex m-2 ">

@@ -4,7 +4,7 @@ const Carousel = ({ carouselRes }) => {
   return (
     <div className="relative">
       {/* Scrollable Container */}
-      <div className="flex overflow-x-auto scrollbar scrollbar-thumb-yellow-400 scrollbar-track-yellow-100 py-4">
+      <div className="flex overflow-x-auto scrollbar-none scrollbar-thumb-pink-400 scrollbar-track-pink-200 py-4">
         {carouselRes.map((restaurant) => (
           <div key={restaurant?.id} className="mx-2 flex-shrink-0">
             <img
@@ -15,6 +15,7 @@ const Carousel = ({ carouselRes }) => {
           </div>
         ))}
       </div>
+      <hr/>
     </div>
   );
 };

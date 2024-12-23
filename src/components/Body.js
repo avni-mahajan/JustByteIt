@@ -6,6 +6,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import Search from "./Search";
 import Carousel from "./Carousel";
 import TopRes from "./TopRes";
+import { API_CALL } from "../utils/constants";
+import RatingAbove4 from "./filters/RatingAbove4";
 
 const Body = () => {
   const [lisRes, setlisRes] = useState([]);
@@ -18,23 +20,13 @@ const Body = () => {
   const onlinestatus = useOnlineStatus();
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(API_CALL);
     const json = await data.json();
 
-    setlisRes(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    ); //to update the new  rendered data on UI
-    setflisRes(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setcarouselRes(
-      json?.data?.cards[0]?.card?.card?.imageGridCards?.info //returning an array of resturent
-    );
-    settopResData(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants //returning an array of resturent
-    );
+    setlisRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
+    setflisRes( json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setcarouselRes(json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+    settopResData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   useEffect(() => {
@@ -42,13 +34,25 @@ const Body = () => {
   }, []);
 
   if (onlinestatus === false) {
-    return <h1>Oops !! Looks like you are offline</h1>;
+    return <h1 className="justify-center font-extrabold text-3xl">Oops !! Looks like you are offline</h1>;
   }
 
   return lisRes.length === 0 ? (
     <Shimmer />
   ) : (
     <div>
+      <div className="mx-56 mt-6 mb-10">
+        <h1 className="font-bold text-2xl">What's on your mind?</h1>
+          <Carousel carouselRes={carouselRes} />
+      </div>
+
+      <div className="mx-56 my-10">
+        <h1 className="font-bold text-2xl">Top restaurant chains in Jodhpur</h1>
+          <TopRes topResData={topResData} />
+      </div>
+      
+      <h1 className="font-bold text-2xl mx-56">Restaurants with online food delivery in Jodhpur</h1>
+      
       <div className="flex px-48 justify-between mt-5 mx-6">
         <Search
           lisRes={lisRes}
@@ -56,36 +60,10 @@ const Body = () => {
           searchText={searchText}
           setSearchText={setSearchText}
         />
-        <div className="filter">
-          <button
-            className="bg-yellow-300 rounded-lg w-40 text-yellow-700"
-            onClick={() => {
-              const filteredLis = lisRes.filter((res) => {
-                return res.info.avgRating >= 4;
-              });
-              setflisRes(filteredLis);
-            }}
-          >
-            Top restaurants
-          </button>
-        </div>
+        <RatingAbove4 lisRes={lisRes} setflisRes={setflisRes} />
+        
       </div>
-      <div className="mx-56 my-10">
-        <h1 className="font-bold text-2xl">What's on your mind?</h1>
-        <div className="">
-          <Carousel carouselRes={carouselRes} />
-        </div>
-      </div>
-
-      <div className="mx-56 my-10">
-        <h1 className="font-bold text-2xl">Top restaurant chains in Jodhpur</h1>
-        <div className="">
-          <TopRes topResData={topResData} />
-        </div>
-      </div>
-     
      <div>
-      <h1 className="font-bold text-2xl mx-56">Restaurants with online food delivery in Jodhpur</h1>
       <div className="flex flex-wrap px-48">
         {flisRes.map((restaurant) => (
           <Link
