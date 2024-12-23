@@ -1,6 +1,12 @@
+import { useDispatch } from "react-redux";
 import { LOGO_CDN } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       <div>
@@ -14,7 +20,7 @@ const ItemList = ({ items }) => {
                 <span>{item?.card?.info?.name}</span>
                 {/* Conditional rendering for price and finalprice */}
                 <div>
-                - ₹
+                  - ₹
                   {item?.card?.info?.finalPrice ? (
                     <>
                       <span className="line-through text-gray-500">
@@ -39,10 +45,14 @@ const ItemList = ({ items }) => {
             </div>
 
             <div className="w-3/12">
-            <button className=" absolute bg-black text-white">Add+</button>
-            <img src={LOGO_CDN + item.card.info.imageId} className="w-full" />
+              <button
+                className=" absolute bg-black text-white"
+                onClick={() => handleAddItem(item)}
+              >
+                Add+
+              </button>
+              <img src={LOGO_CDN + item.card.info.imageId} className="w-full" />
             </div>
-
           </div>
         ))}
       </div>

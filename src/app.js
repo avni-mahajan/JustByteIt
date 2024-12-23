@@ -10,6 +10,7 @@ import ResMenu from "./components/ResMenu";
 import {lazy} from "react"; //for lazy loading
 import { Provider } from "react-redux"; //redux (state managment)
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const Grocery = lazy (()=> import("./components/Grocery"));  //importing element we want to lazy load 
 
@@ -50,6 +51,10 @@ const appRouter = createBrowserRouter([
         {
             path : "/restaurant/:resID",
             element : <ResMenu/>,
+        },
+        {
+            path : "/cart",
+            element : <Cart/>,
         }
     ],
         errorElement : <Error />,

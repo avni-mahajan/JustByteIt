@@ -13,7 +13,6 @@ const ResCard = (props) => {
   } = resData?.info;
   return (
     <div className="w-60 h-3/4 m-5 p-2 rounded-xl hover:scale-95 hover:cursor-pointer transition-all ease-in delay-100">
-        
       <div className="relative w-full h-48 sm:w-72 lg:h-40 lg:w-64">
         {cloudinaryImageId && (
           <img
@@ -44,19 +43,5 @@ const ResCard = (props) => {
     </div>
   );
 };
-
-// export const withDiscountLabel = (ResCard) => {
-//     return (props) => {
-//       const { resData } = props;
-//       const discountHeader = resData?.info?.aggregatedDiscountInfoV3?.header;
-
-//       return (
-//         <div>
-//           <ResCard {...props} />
-//           <h1 className="">{discountHeader}</h1>
-//         </div>
-//       );
-//     };
-//   };
 
 export default ResCard;

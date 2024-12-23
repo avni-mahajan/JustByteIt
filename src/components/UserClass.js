@@ -20,11 +20,6 @@ class UserClass extends React.Component {
       <div className="user">
         <h2>Name: {name} </h2>
         <h3>Location : {location} </h3>
-        {/* <div>
-        <UserContext.Consumer> {
-          ({loggedInUser}) => <h1>{loggedInUser|| "Guest"}</h1>
-          }</UserContext.Consumer>
-        </div> */}
       </div>
     );
   }
