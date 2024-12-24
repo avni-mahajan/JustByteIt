@@ -5,3 +5,4 @@ export const MENU_A = "https://proxy.cors.sh/https://www.swiggy.com/dapi/menu/pl
 export const MENU_B = "&catalog_qa=undefined&submitAction=ENTER";
 export const carouselImg = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
 export const API_CALL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+export const TOP_PICK_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/";
