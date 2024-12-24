@@ -40,7 +40,7 @@ const Body = () => {
   return lisRes.length === 0 ? (
     <Shimmer />
   ) : (
-    <div>
+    <div className="">
       <div className="mx-56 mt-6 mb-10">
         <h1 className="font-bold text-2xl">What's on your mind?</h1>
           <Carousel carouselRes={carouselRes} />
