@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useResMenu from "../utils/useResMenu";
 import ResCategory from "./ResCategory";
 import starRating from "../utils/images/star-rating.png";
+import DealsAndTopPick from "./DealsAndTopPick";
 
 const ResMenu = () => {
   const { resID } = useParams(); // to fetch restaurant ID dynamically from the route
@@ -60,6 +61,8 @@ const ResMenu = () => {
           <h4 className="truncate ml-3 text-sm font-bold">{sla?.slaString}</h4>
         </div>
       </div>
+      {/* <DealsAndTopPick resInfo={resInfo}/> */}
+
       <div>
         {categories.map((category, index) => (
           <ResCategory
