@@ -47,11 +47,11 @@ const Body = () => {
       </div>
 
       <div className="mx-56 my-10">
-        <h1 className="font-bold text-2xl">Top restaurant chains in Jodhpur</h1>
+        <h1 className="font-bold text-2xl">Top restaurant chains in Chandigarh</h1>
           <TopRes topResData={topResData} />
       </div>
       
-      <h1 className="font-bold text-2xl mx-56">Restaurants with online food delivery in Jodhpur</h1>
+      <h1 className="font-bold text-2xl mx-56">Restaurants with online food delivery in Chandigarh</h1>
       
       <div className="flex px-48 justify-between mt-5 mx-6">
         <Search
