@@ -17,7 +17,7 @@ const Header = () => {
             <Link to=""> Home</Link>
           </li>
           <li className="py-3 px-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
-            <Link to="/about">About</Link>
+            Help
           </li>
           <li className="py-3 px-5 hover:text-pink-400 hover:cursor-pointer my-2 font-bold">
             <Link to="/grocery">Grocery</Link>
