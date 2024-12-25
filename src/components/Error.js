@@ -5,7 +5,7 @@ const Error = () =>{
     const err = useRouteError();
 
     return (
-        <div className="Error">
+        <div className="mx-96">
             <img className = "errCat" src = {LOGO_ERR}/>
             <h1 className="errInfo">{err.status} : {err.statusText}</h1>
         </div>
