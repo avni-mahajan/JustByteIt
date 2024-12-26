@@ -1,8 +1,8 @@
-# JustByteIt
+# Just Byte It
 
 JustByteIt is a web application built to explore and learn React.js. This project integrates Swiggy's live APIs and modern web technologies to create an engaging user experience. The app uses various tools like Tailwind CSS for styling, Redux for state management, React Router for page navigation and Parcel as a bundler among others.
 
-## 💻 Tech Stack
+## Tech Stack
 
 - React.js
 - Redux
@@ -11,7 +11,7 @@ JustByteIt is a web application built to explore and learn React.js. This projec
 - Parcel (Bundler)
 - Babel (Transpiler)
 
-## 🧿 Key Features
+## Key Features
 
 - Integration of live APIs for dynamic data fetching.
 - Config-driven UI for easy customization.
@@ -20,26 +20,29 @@ JustByteIt is a web application built to explore and learn React.js. This projec
 - Custom Hooks for reusable logic.
 - Shimmer UI for a smooth loading experience.
 
-## 🚀 Live Demo
+## Live Demo
 
-Will be updated soon !
+[JustByteIt Live Demo](https://just-byte-it-harsheekas-projects.vercel.app/)
 
-## Screenshots
+## Screenshots from the web application 
 
 ### Home Page
-![Home Page](ss/homepage/1.png)
+![Home Page 1](ss/homepage/1.png)
+![Home Page 2](ss/homepage/2.png)
+![Home Page 3](ss/homepage/3.png)
 
-### Product Page
-![Product Page](ss/respage)
+### Restaurant Page
+![Restaurant Page](ss/respage.png)
 
 ### Cart Page
-![Cart Page](ss/cartpage/1)
+![Cart Page 1](ss/cartpage/1.png)
+![Cart Page 2](ss/cartpage/2.png)
+![Cart Page 3](ss/cartpage/3.png)
+
 
 ## Features
 
-- **User Authentication:** Secure user authentication with JWT and restricted access to certain pages.
 - **Real-time Search:** Search for products and services in real-time, enhancing the user experience.
-- **Filters and Sorting:** Users can filter and sort items to find exactly what they're looking for.
 - **Cart Management:** Users can manage their shopping cart and proceed to checkout with ease.
 - **Lazy Loading:** Optimized resource loading to improve application performance.
 - **Testing:** Full test coverage using Jest and React Testing Library to ensure quality.
@@ -73,5 +76,3 @@ To run this project locally, follow these steps:
 ---
 
 > Note: JustByteIt is a learning project built for educational purposes. It is not intended for commercial use or public deployment.
-
-Happy coding! 🎉
