@@ -26,7 +26,14 @@ Will be updated soon !
 
 ## Screenshots
 
-Will be updated soon !
+### Home Page
+![Home Page](ss/homepage/1.png)
+
+### Product Page
+![Product Page](ss/respage)
+
+### Cart Page
+![Cart Page](ss/cartpage/1)
 
 ## Features
 
