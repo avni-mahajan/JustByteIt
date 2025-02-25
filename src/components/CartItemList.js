@@ -13,7 +13,7 @@ const CartItemList = ({ items }) => {
               <span className="font-bold text-gray-700 text-lg">
                 {item?.card?.info?.name}
               </span>
-              {/* Conditional rendering for price and final price */}
+  
               <div className="font-semibold mb-4">
                 ₹
                 {item?.card?.info?.finalPrice ? (
@@ -39,7 +39,7 @@ const CartItemList = ({ items }) => {
                 {item.card.info.description}
               </p>
 
-              {/* ✅ Show item quantity here */}
+              
               <p className="text-lg font-bold text-pink-500">
                 Quantity: {item.quantity}
               </p>

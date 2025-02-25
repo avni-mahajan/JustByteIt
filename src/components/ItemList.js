@@ -4,7 +4,7 @@ import { addItem, removeItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items); // Get cart from Redux
+  const cartItems = useSelector((state) => state.cart.items); 
 
   const getItemCount = (itemId) => {
     return cartItems.filter((cartItem) => cartItem.card.info.id === itemId)

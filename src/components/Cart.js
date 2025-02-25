@@ -13,7 +13,6 @@ const Cart = () => {
 
     const isCartEmpty = cartItems.length === 0;
 
-    // ✅ Group items by ID and add a quantity property
     const groupedItems = cartItems.reduce((acc, item) => {
         const existingItem = acc.find((i) => i.card.info.id === item.card.info.id);
         if (existingItem) {
