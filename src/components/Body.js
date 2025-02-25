@@ -7119,7 +7119,6 @@ const Body = () => {
       </div>
 
       <div className="mx-56 my-10">
-        <h1 className="font-bold text-2xl">Top restaurant chains in Chandigarh</h1>
           <TopRes topResData={topResData} />
       </div>
       
