@@ -67,7 +67,8 @@ const ResMenu = () => {
         {categories.map((category, index) => (
           <ResCategory
             key={category?.card?.card.title}
-            data={category?.card?.card}
+            data={category?.card?.card} 
+            initiallyOpen={index === 0}
           />
         ))}
       </div>

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const Rescategory = ({ data }) => {
-  const [showItems, setshowItems] = useState(false);
+const Rescategory = ({ data, initiallyOpen }) => {
+  const [showItems, setshowItems] = useState(initiallyOpen);
+
   const handleClick = () => {
     setshowItems(!showItems);
   };
