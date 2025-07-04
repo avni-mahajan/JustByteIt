@@ -4,5 +4,5 @@ export const LOGO_ERR = "https://img.freepik.com/free-vector/404-error-with-cute
 export const MENU_A = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7333148&lng=76.7794179&restaurantId=";
 export const MENU_B = "&catalog_qa=undefined&submitAction=ENTER";
 export const carouselImg = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
-export const API_CALL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+export const API_CALL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.91460&lng=75.85430&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 export const TOP_PICK_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/";
