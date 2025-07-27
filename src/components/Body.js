@@ -6,7 +6,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import Search from "./Search";
 import Carousel from "./Carousel";
 import TopRes from "./TopRes";
-import { API_CALL } from "../utils/constants";
+import { JUSTBYTEIT_API_URL } from "../utils/constants";
 import RatingAbove4 from "./filters/RatingAbove4";
 
 const Body = () => {
@@ -22,7 +22,7 @@ const Body = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch(API_CALL);
+        const data = await fetch(JUSTBYTEIT_API_URL);
         const json = await data.json();
   
         setlisRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
