@@ -4,7 +4,7 @@ import {
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../utils/constants";
-import Shimmer from "./Shimmer";
+import ResMenuShimmer from "./ResMenuShimmer";
 import useResMenuData from "../utils/useResMenu";
 import ResCategory from "./ResCategory";
 import starRating from "../utils/images/star-rating.png";
@@ -30,7 +30,7 @@ const RestaurantMenu = () => {
   } = restaurant || {};
 
   return !restaurant ? (
-    <Shimmer />
+    <ResMenuShimmer />
   ) : (
     <div className="mx-96">
       <div className=" p-5 rounded-[40px] my-8 bg-gradient-to-t from-gray-200 to-white">
