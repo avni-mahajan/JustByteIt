@@ -1,41 +1,28 @@
 import React from "react";
 import ramenCat from "../utils/images/ramenCat.png";
-import profile from "../utils/images/profile.png";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-pink-100 flex flex-col items-center p-8">
-      <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-3xl text-center">
-        <h2 className="text-2xl font-semibold text-pink-500 mb-4">About Me</h2>
-        <p className="text-gray-700">
-          Hey there! I'm Harshika, a passionate developer who loves building
-          creative and functional web applications.💖
+    <div className="flex flex-col-reverse lg:flex-row items-center justify-center bg-pink-100 min-h-[80vh] p-8 lg:p-16">
+      {/* Left Content */}
+      <div className="text-center lg:text-left max-w-xl">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-800 leading-tight mb-4">
+          Welcome to the world of
+        </h1>
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-pink-500 bg-white px-4 py-2 inline-block rounded-xl shadow-md">
+          Cute & Crave-worthy Eats 💖
+        </h2>
+        <p className="text-gray-600 italic text-lg mt-4">
+          "Satisfy your cravings in the most adorable way — only on <span className="text-pink-500 font-semibold">Just Byte It</span>!"
         </p>
-        <div className="mt-4">
-          <img
-            src={profile}
-            alt="Pink Anime Aesthetic"
-            className="rounded-lg mx-auto w-48 shadow-md"
-          />
-        </div>
       </div>
 
-      <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-3xl text-center mt-6">
-        <h2 className="text-2xl font-semibold text-pink-500 mb-4">
-          About This Project
-        </h2>
-        <p className="text-gray-700">
-          This project is a fun and stylish web application designed with ReactJS!
-          The goal was to create something visually pleasing while ensuring
-          smooth functionality.✨
-        </p>
-        <div className="mt-4">
-          <img
-            src={ramenCat}
-            alt="Cute Pink Cat"
-            className="rounded-lg mx-auto w-48 shadow-md"
-          />
-        </div>
+      <div className="max-w-sm lg:max-w-md mb-10 lg:mb-0">
+        <img
+          src={ramenCat}
+          alt="Cute Ramen Cat"
+          className="w-full rounded-2xl shadow-xl"
+        />
       </div>
     </div>
   );
