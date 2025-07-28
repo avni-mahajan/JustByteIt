@@ -8,6 +8,7 @@ import Shimmer from "./Shimmer";
 import useResMenuData from "../utils/useResMenu";
 import ResCategory from "./ResCategory";
 import starRating from "../utils/images/star-rating.png";
+console.log("Resolved starRating URL:", starRating);
 
 const RestaurantMenu = () => {
   const { resId } = useParams();

@@ -30,7 +30,7 @@ const ItemList = ({ items }) => {
         const ratingCount =
           item.card.info.ratings?.aggregatedRating?.ratingCountV2;
 
-        // State to handle "Show More"
+        //State to handle "Show More"
         const [showMore, setShowMore] = useState(false);
         const description = item.card.info.description || "";
 
