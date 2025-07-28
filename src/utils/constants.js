@@ -4,10 +4,12 @@ export const LOGO_ERR = "https://img.freepik.com/free-vector/404-error-with-cute
 export const carouselImg = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
 export const API_CALL = "https://justbyteit-server.onrender.com/api/restaurants?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
 export const TOP_PICK_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_292,h_300/";
-export const IMG_CDN_URL = `${process.env.REACT_MEDIA_ASSETS_BASE_URL}image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/`;
-export const ITEM_IMG_CDN_URL = `${process.env.REACT_MEDIA_ASSETS_BASE_URL}image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/`;
-export const JUSTBYTEIT_API_URL = `${process.env.REACT_JUSTBYTEIT_APP_BASE_URL}restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING`;
-export const JUSTBYTEIT_MENU_API_URL = `${process.env.REACT_JUSTBYTEIT_APP_BASE_URL}menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=`;
+export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+export const ITEM_IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+
+export const JUSTBYTEIT_API_URL = "https://justbyteit-server.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING";
+export const JUSTBYTEIT_MENU_API_URL = "https://justbyteit-server.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=";
+
 export const MENU_ITEM_TYPE_KEY =
   "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
 export const RESTAURANT_TYPE_KEY =

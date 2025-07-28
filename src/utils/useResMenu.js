@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 const useResMenuData = (
-  FOODFIRE_MENU_API_URL,
+  JUSTBYTEIT_MENU_API_URL,
   resId,
   RESTAURANT_TYPE_KEY,
   MENU_ITEM_TYPE_KEY
 ) => {
   const [restaurant, setRestaurant] = useState(null);
-  const [menuItems, setMenuItems] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     if (resId) {
@@ -17,47 +17,38 @@ const useResMenuData = (
 
   const fetchRestaurantData = async () => {
     try {
-      const response = await fetch(`${FOODFIRE_MENU_API_URL}${resId}`);
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-      }
+      const response = await fetch(`${JUSTBYTEIT_MENU_API_URL}${resId}`);
+      if (!response.ok) throw new Error(`Error: ${response.status}`);
 
       const data = await response.json();
 
+      //Extract restaurant info
       const restaurantData =
         data?.data?.cards
           ?.map((x) => x.card)
-          ?.find((x) => x && x.card["@type"] === RESTAURANT_TYPE_KEY)?.card
+          ?.find((x) => x?.card["@type"] === RESTAURANT_TYPE_KEY)?.card
           ?.info || null;
       setRestaurant(restaurantData);
 
-      const menuItemsData =
+      //Extract menu categories
+      const regularCards =
         data?.data?.cards
-          .find((x) => x.groupedCard)
-          ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(
-            (x) => x.card?.card
-          )
-          ?.filter((x) => x["@type"] == MENU_ITEM_TYPE_KEY)
-          ?.map((x) => x.itemCards)
-          .flat()
-          .map((x) => x.card?.info) || [];
+          ?.find((x) => x.groupedCard)
+          ?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
 
-      const uniqueMenuItems = [];
-      menuItemsData.forEach((item) => {
-        if (!uniqueMenuItems.find((x) => x.id === item.id)) {
-          uniqueMenuItems.push(item);
-        }
-      });
+      const itemCategories = regularCards
+        .map((x) => x.card?.card)
+        .filter((x) => x["@type"] === MENU_ITEM_TYPE_KEY && x?.title && x?.itemCards);
 
-      setMenuItems(uniqueMenuItems);
+      setCategories(itemCategories);
     } catch (error) {
       console.error("Failed to fetch restaurant data:", error);
       setRestaurant(null);
-      setMenuItems([]);
+      setCategories([]);
     }
   };
 
-  return [restaurant, menuItems];
+  return [restaurant, categories];
 };
 
 export default useResMenuData;

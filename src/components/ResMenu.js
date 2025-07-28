@@ -1,94 +1,74 @@
-import { useParams } from "react-router-dom"; 
+import { useParams } from "react-router-dom";
 import {
   JUSTBYTEIT_MENU_API_URL,
-  IMG_CDN_URL,
-  ITEM_IMG_CDN_URL,
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../utils/constants";
 import Shimmer from "./Shimmer";
-import useResMenuData from "../utils/useResMenu"; 
+import useResMenuData from "../utils/useResMenu";
+import ResCategory from "./ResCategory";
+import starRating from "../utils/images/star-rating.png";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const [restaurant, menuItems] = useResMenuData(
+  const [restaurant, categories] = useResMenuData(
     JUSTBYTEIT_MENU_API_URL,
     resId,
     RESTAURANT_TYPE_KEY,
     MENU_ITEM_TYPE_KEY
   );
 
+  const {
+    name,
+    areaName,
+    costForTwoMessage,
+    cuisines,
+    avgRating,
+    totalRatingsString,
+    sla,
+  } = restaurant || {};
 
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-menu">
-      <div className="restaurant-summary">
-        <img
-          className="restaurant-img"
-          src={IMG_CDN_URL + restaurant?.cloudinaryImageId}
-          alt={restaurant?.name}
-        />
-        <div className="restaurant-summary-details">
-          <h2 className="restaurant-title">{restaurant?.name}</h2>
-          <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
-          <div className="restaurant-details">
-            <div
-              className="restaurant-rating"
-              style={
-                restaurant?.avgRating < 4
-                  ? { backgroundColor: "var(--light-red)" }
-                  : restaurant?.avgRating === "--"
-                  ? { backgroundColor: "white", color: "black" }
-                  : { color: "white" }
-              }
-            >
-              <i className="fa-solid fa-star"></i>
-              <span>{restaurant?.avgRating}</span>
-            </div>
-            <div className="restaurant-rating-slash">|</div>
-            <div>{restaurant?.sla?.slaString}</div>
-            <div className="restaurant-rating-slash">|</div>
-            <div>{restaurant?.costForTwoMessage}</div>
+    <div className="mx-96">
+      <div className=" p-5 rounded-[40px] my-8 bg-gradient-to-t from-gray-200 to-white">
+        <h1 className="font-extrabold text-2xl mb-5 ">{name}</h1>
+        <div className=" border-2 border-gray-200 rounded-[27px]  p-4 bg-white">
+          <div className="flex ml-2">
+            <ul className="flex ">
+              <li>
+                <div className="flex">
+                  <img className="w-5 h-5 mt-0.5 mr-2" src={starRating} />
+                  <h4 className="font-bold mr-2">
+                    {avgRating}({totalRatingsString})
+                  </h4>
+                </div>
+              </li>
+              <li className="list-disc ml-4">
+                <h4 className="font-bold">{costForTwoMessage}</h4>
+              </li>
+            </ul>
           </div>
+          <h4 className="truncate ml-3 text-pink-500 font-bold text-sm my-4">
+            {cuisines.join(", ")}
+          </h4>
+          <div className="flex">
+            <h4 className="truncate ml-3 font-bold text-sm">Outlet</h4>
+            <h4 className="truncate ml-3 text-gray-600 text-sm">{areaName}</h4>
+          </div>
+          <h4 className="truncate ml-3 text-sm font-bold">{sla?.slaString}</h4>
         </div>
       </div>
 
-      <div className="restaurant-menu-content">
-        <div className="menu-items-container">
-          <div className="menu-title-wrap">
-            <h3 className="menu-title">Recommended</h3>
-            <p className="menu-count">{menuItems.length} ITEMS</p>
-          </div>
-          <div className="menu-items-list">
-            {menuItems.map((item) => (
-              <div className="menu-item" key={item?.id}>
-                <div className="menu-item-details">
-                  <h3 className="item-title">{item?.name}</h3>
-                  <p className="item-cost">
-                    {item?.price > 0
-                      ? new Intl.NumberFormat("en-IN", {
-                          style: "currency",
-                          currency: "INR",
-                        }).format(item?.price / 100)
-                      : " "}
-                  </p>
-                  <p className="item-desc">{item?.description}</p>
-                </div>
-                <div className="menu-img-wrapper">
-                  {item?.imageId && (
-                    <img
-                      className="menu-item-img"
-                      src={ITEM_IMG_CDN_URL + item?.imageId}
-                      alt={item?.name}
-                    />
-                  )}
-                  <button className="add-btn"> ADD +</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div>
+        {categories.map((category, index) => (
+          <ResCategory
+            key={category?.title}
+            data={category}
+            initiallyOpen={index === 0}
+          />
+        ))}
       </div>
     </div>
   );
