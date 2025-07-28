@@ -24,39 +24,52 @@ const Body = () => {
       try {
         const data = await fetch(JUSTBYTEIT_API_URL);
         const json = await data.json();
-  
-        setlisRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
-        setflisRes(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+        setlisRes(
+          json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
+        setflisRes(
+          json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
         setcarouselRes(json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
-        settopResData(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   
+        settopResData(
+          json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
       } catch (error) {
         console.error("Failed to fetch data:", error);
       }
     };
-  
+
     fetchData();
   }, []);
-  
 
   if (onlinestatus === false) {
-    return <h1 className="justify-center font-extrabold text-3xl">Oops !! Looks like you are offline</h1>;
+    return (
+      <h1 className="justify-center font-extrabold text-3xl">
+        Oops !! Looks like you are offline
+      </h1>
+    );
   }
-
 
   return lisRes.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="">
       <div className=" mt-6 mb-10">
-          <Carousel carouselRes={carouselRes} />
+        <Carousel carouselRes={carouselRes} />
       </div>
 
       <div className="mx-56 my-10">
-          <TopRes topResData={topResData} />
+        <TopRes topResData={topResData} />
       </div>
-      
-      <h1 className="font-bold text-2xl mx-56">Restaurants with online food delivery in Chandigarh</h1>
-      
+
+      <h1 className="font-bold text-2xl mx-56">
+        Restaurants with online food delivery in Chandigarh
+      </h1>
+
       <div className="flex px-48 justify-between mt-5 mx-6">
         <Search
           lisRes={lisRes}
@@ -65,21 +78,24 @@ const Body = () => {
           setSearchText={setSearchText}
         />
         <RatingAbove4 lisRes={lisRes} setflisRes={setflisRes} />
-        
       </div>
-     <div>
-      <div className="flex flex-wrap px-48">
-        {flisRes.map((restaurant) => (
-          <Link
-            key={restaurant?.info?.id}
-            to={"/restaurant/" + restaurant?.info?.id}
-          >
-            <ResCard resData={restaurant} />
-          </Link>
-        ))}
+      {flisRes.length === 0 && (
+        <p className="text-center text-pink-400 font-medium mt-6">
+          No results found.
+        </p>
+      )}
+      <div>
+        <div className="flex flex-wrap px-48">
+          {flisRes.map((restaurant) => (
+            <Link
+              key={restaurant?.info?.id}
+              to={"/restaurant/" + restaurant?.info?.id}
+            >
+              <ResCard resData={restaurant} />
+            </Link>
+          ))}
+        </div>
       </div>
-     </div>
-      
     </div>
   );
 };

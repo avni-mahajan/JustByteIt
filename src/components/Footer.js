@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="flex mx-64 mt-14 flex-row gap-x-6">
                 <div className="">
                     <img className ="w-36 ml-5" src={logo} />
-                    <h1 className="mt-2 font-medium ">© 2024 JustByteIt Limited</h1>
+                    <h1 className="mt-2 font-medium">© {new Date().getFullYear()} JustByteIt Limited</h1>
                 </div>
                 <div className=" mt-10">
                     <h1 className="font-bold text-2xl text-slate-600">Company</h1>

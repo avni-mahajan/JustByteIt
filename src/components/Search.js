@@ -1,37 +1,38 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 
-const Search = ({ lisRes, setflisRes, searchText, setSearchText }) => {
-  const handleSearch = () => {
-    const filterlis = lisRes.filter((res) => {
-      return res.info.name.toLowerCase().includes(searchText.toLowerCase());
-    });
-    setflisRes(filterlis);
-  };
+const Search = ({ lisRes, setflisRes }) => {
+  const [searchText, setSearchText] = useState("");
+  const [noResults, setNoResults] = useState(false);
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
+  useEffect(() => {
+    const delayDebounce = setTimeout(() => {
+      if (searchText.trim() === "") {
+        setflisRes(lisRes);
+        setNoResults(false);
+      } else {
+        const filtered = lisRes.filter((res) =>
+          res.info.name.toLowerCase().includes(searchText.toLowerCase())
+        );
+        setflisRes(filtered);
+        setNoResults(filtered.length === 0);
+      }
+    }, 300); //debounce delay
+
+    return () => clearTimeout(delayDebounce);
+  }, [searchText, lisRes, setflisRes]);
 
   return (
-    <div className="border-2 border-pink-200 rounded-2xl bg-pink-100">
+    <div className="flex items-center w-full max-w-sm bg-pink-100 border-2 border-pink-300 rounded-2xl shadow-sm px-3 py-1">
+      <FontAwesomeIcon icon={faSearch} className="text-pink-400 mr-2" />
       <input
-        className="bg-pink-100 w-48 rounded-tl-2xl rounded-bl-2xl focus:outline-none ml-2"
         type="text"
-        placeholder=" Search here..."
+        className="flex-1 bg-pink-100 text-sm focus:outline-none placeholder-pink-300"
+        placeholder="Search by name..."
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
-        onKeyDown={handleKeyDown}
       />
-
-      <button
-        className="bg-pink-100 rounded-tr-2xl rounded-br-2xl w-7"
-        onClick={handleSearch}
-      >
-        <FontAwesomeIcon icon={faSearch} className="text-pink-400" />
-      </button>
     </div>
   );
 };
