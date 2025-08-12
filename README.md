@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Just Byte It
 
 JustByteIt is a web application built to explore and learn React.js. This project integrates Swiggy's APIs. The app uses various tools like Tailwind CSS for styling, Redux for state management, React Router for page navigation and Parcel as a bundler among others.
@@ -44,7 +43,6 @@ JustByteIt is a web application built to explore and learn React.js. This projec
 - **Real-time Search:** Search for products and services in real-time, enhancing the user experience.
 - **Cart Management:** Users can manage their shopping cart and proceed to checkout with ease.
 - **Lazy Loading:** Optimized resource loading to improve application performance.
-- **Testing:** Full test coverage using Jest and React Testing Library to ensure quality.
 
 ## Setup
 
@@ -69,6 +67,5 @@ To run this project locally, follow these steps:
 4. **Open the application:**  
     Open your browser and navigate to [http://localhost:1234](http://localhost:1234) to access the application.
 
----
 
 > Note: JustByteIt is a learning project built for educational purposes. It is not intended for commercial use or public deployment.
