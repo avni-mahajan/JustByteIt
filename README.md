@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Just Byte It
 
 JustByteIt is a web application built to explore and learn React.js. This project integrates Swiggy's APIs. The app uses various tools like Tailwind CSS for styling, Redux for state management, React Router for page navigation and Parcel as a bundler among others.
@@ -20,9 +21,7 @@ JustByteIt is a web application built to explore and learn React.js. This projec
 - Custom Hooks for reusable logic.
 - Shimmer UI for a smooth loading experience.
 
-## Live Demo
 
-[JustByteIt Live Demo](https://just-byte-it-harsheekas-projects.vercel.app/)
 
 ## Screenshots from the web application 
 
